@@ -1,0 +1,17 @@
+var page = require('webpage').create();
+var server = require('webserver').create();
+var file_system=require('fs');
+var lines=file_system.open('urls.txt','r').read().split('\n');
+dump = function(url){
+	/*page.open(url,function(){
+		return page.content;		
+}*/
+	return url;
+};
+lines.forEach(function(line){
+			console.log(dump(line));});
+phantom.exit()
+				
+		
+
+
