@@ -1,6 +1,5 @@
 file_system=require 'fs'
 file=file_system.open('urls.txt','r')
-redis=__dirname+require 'redis/index.js'
 client1=redis.createClient()
 dump=(url,callback)->
 	page=require('webpage').create()

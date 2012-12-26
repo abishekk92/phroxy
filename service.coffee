@@ -1,11 +1,12 @@
 http = require 'http'
 url_parser= require 'url'
+redis = require 'redis'
 port_number= 1337
 count=0
 options=
     hostname: "127.0.0.1"
     port:	7379
-    path:  "/GET/foo"
+    path:  "/lrange/mylist/0/4"
 http.createServer (request,response)->
 	params=url_parser.parse request.url
 	query=params['query']
@@ -19,4 +20,5 @@ http.createServer (request,response)->
 				response.end data
 		.end()
 .listen(port_number,'127.0.0.1')
+redis_client=redis.createClient()
 console.log "Server started at #{port_number}"
